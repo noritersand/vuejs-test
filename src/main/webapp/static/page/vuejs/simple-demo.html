@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>vuejs: simple demo</title>
+    <script src="/static/lib/js/vue.js"></script>
+    </head>
+<body>
+    <div id="app">{{ message }}</div>
+    <hr>
+    <div id="app-2">
+        <span v-bind:title="waldo">이 위에 잠시 마우스를 올리면 동적으로 바인딩 된 title을 볼 수 있습니다!</span>
+    </div>
+    <hr>
+    <div id="app-3">
+        <p v-if="seen">이제 나를 볼 수 있어요</p>
+    </div>
+    <hr>
+    <div id="app-4">
+        <ol>
+            <li v-for="i in values">{{i.index}}</li>
+        </ol>
+    </div>
+    <hr>
+    <div id="app-5">
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">메시지 뒤집기</button>
+    </div>
+    <hr>
+    <div id="app-6">
+        <p>{{ message }}</p>
+        <input v-model="message">
+    </div>
+    <hr>
+    <div id="app-7">
+        <ol>
+          <!--
+            이제 각 todo-item 에 todo 객체를 제공합니다.
+            화면에 나오므로, 각 항목의 컨텐츠는 동적으로 바뀔 수 있습니다.
+            또한 각 구성 요소에 "키"를 제공해야합니다 (나중에 설명 됨).
+           -->
+          <todo-item
+            v-for="item in groceryList"
+            v-bind:todo="item"
+            v-bind:key="item.id"
+          ></todo-item>
+        </ol>
+      </div>
+    <script src="/static/page/vuejs/simple-demo.js"></script>
+</body>
+</html>
+
